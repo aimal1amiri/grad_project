@@ -1,11 +1,22 @@
 import express from 'express';
+
 import authenticate_route from "../Back-end/routes/authenticate_route.js";
+import { ENV_VARS } from './config/envVars.js';
+import { connectDB } from './config/db.js';
+
+
+
+
 
 
 const web= express();
 
+const PORT= ENV_VARS.PORT;
+
+//console.log(PORT);
 web.use("/api/v1/auth", authenticate_route);
 
-web.listen(5000,()=>{
-    console.log("back-end server has started on 5000");
+web.listen(PORT,()=>{
+    console.log("back-end server has started on "+PORT);
+    connectDB();
 });
