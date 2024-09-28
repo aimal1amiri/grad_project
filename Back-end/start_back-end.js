@@ -13,6 +13,8 @@ const web= express();
 
 const PORT= ENV_VARS.PORT;
 
+web.use(express.json()); //it allows to parse req.body
+
 //console.log(PORT);
 web.use("/api/v1/auth", authenticate_route);
 

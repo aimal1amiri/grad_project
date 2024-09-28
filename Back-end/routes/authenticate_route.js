@@ -4,12 +4,12 @@ import { login, logout, signup } from '../controller/authenticate_controller.js'
 
 const routing=express.Router();
 
-routing.get("/signup", signup);
+routing.post("/signup", signup);
 
 
-routing.get("/login", login)
+routing.post("/login", login)
 
-routing.get("/logout", logout);
+routing.post("/logout", logout);
 
 
 export default routing;
