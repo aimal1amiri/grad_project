@@ -1,10 +1,11 @@
 import { User } from "../models/user-model.js";
+import bcryptjs from "bcryptjs";
 
 export async function signup(req,res){
     try{
         const {email,password,username}=req.body;
 
-        if(!emaill || !password || !username){
+        if(!email || !password || !username){
             return res.status(400).json({success:false, message:"All fields are required!"});
         }
 
@@ -14,7 +15,7 @@ export async function signup(req,res){
             return res.status(400).json({success:false, message:"invalid email, please provide a valid email"});
         }
 
-        if(!password <8){
+        if(password <8){
             return res.status(400).json({success:false, message:"invalid password, please write at least 8 characters"})
         }
 
@@ -33,24 +34,26 @@ export async function signup(req,res){
 
         }
 
+        const salt=await bcryptjs.genSalt(10);
+        const hashedPassword=await bcryptjs.hash(password,salt);
+
         const PROFILE_PIC=["/profilePic1.", "/profilePic2.","/profilePic3."];
 
         const image=PROFILE_PIC[Math.floor(Math.random()*PROFILE_PIC.length)]; //selecting random image for user profile
 
 
-
-
         const newUser=new User({
             email,
-            password,
+            password:hashedPassword,
             username,
             image
         });
 
-        await newUser.save()
-
-
-
+        await newUser.save();
+        
+        //remove password from the response
+        res.status(201).json({success:true,user:{ ...newUser._doc, password:""}})
+        
 
     }catch (error){
         console.log("Error in singup controller ",error.message);
