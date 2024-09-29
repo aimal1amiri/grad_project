@@ -1,3 +1,4 @@
+import { generateTopenAndSetCookie } from "../cookies/generateTokens.js";
 import { User } from "../models/user-model.js";
 import bcryptjs from "bcryptjs";
 
@@ -49,10 +50,19 @@ export async function signup(req,res){
             image
         });
 
+        
+        generateTopenAndSetCookie(newUser._id,res);
+            
+
         await newUser.save();
         
         //remove password from the response
         res.status(201).json({success:true,user:{ ...newUser._doc, password:""}})
+        
+        
+        
+        
+
         
 
     }catch (error){
