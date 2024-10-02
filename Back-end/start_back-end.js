@@ -2,6 +2,7 @@ import express from 'express';
 
 import authenticate_route from "../Back-end/routes/authenticate_route.js";
 import movieRoutes from "./routes/movie_routes.js"
+import tvShowRoutes from "./routes/tvShow_routes.js";
 import { ENV_VARS } from './config/envVars.js';
 import { connectDB } from './config/db.js';
 
@@ -20,6 +21,7 @@ web.use(express.json()); //it allows to parse req.body
 
 web.use("/api/v1/auth", authenticate_route);
 web.use("/api/v1/movie", movieRoutes);
+web.use("/api/v1/tvshow",tvShowRoutes);
 
 web.listen(PORT,()=>{
     console.log("back-end server has started on "+PORT);
