@@ -49,3 +49,29 @@ export async function getMovieDetails(req,res){
     }
 
 }
+
+export async function getSimilarMovies(req,res){
+    const {id}=req.params;
+    try {
+        const data=await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}/similar?language=en-US&page=1`);
+
+        res.status(200).json({success:true, similar:data.results});
+
+    } catch (error) {
+        console.error("Error fetching trailers:", error.message);
+        res.status(500).json({success:false,message:"internal server error"});
+        
+    }
+}
+
+export async function getMoviesByCategory(req,res){
+    const {category}=req.params;
+
+    try {
+        const data=await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`);
+
+        res.status(200).json({success:true, content:data.results});
+    } catch (error) {
+        res.status(500).json({success:false,message:"internal server error"});        
+    }
+}
