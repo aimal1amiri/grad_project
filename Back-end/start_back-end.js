@@ -7,6 +7,8 @@ import { ENV_VARS } from './config/envVars.js';
 import { connectDB } from './config/db.js';
 import { protectRoutes } from "./middleWare/protectRoutes.js";
 import cookieParser from 'cookie-parser';
+import searchRoutes from './routes/search_routes.js'
+
  
 
 
@@ -25,6 +27,7 @@ web.use(cookieParser());
 web.use("/api/v1/auth", authenticate_route);
 web.use("/api/v1/movie", protectRoutes , movieRoutes);
 web.use("/api/v1/tvshow", protectRoutes ,tvShowRoutes);
+web.use("/api/v1/search", protectRoutes, searchRoutes);
 
 web.listen(PORT,()=>{
     console.log("back-end server has started on "+PORT);
