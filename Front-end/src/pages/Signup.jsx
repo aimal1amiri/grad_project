@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Signup = () => {
+
+  const [email, setEmail]=useState("")
+  const [username, setUsername]= useState("")
+  const [pass, setPass]=useState("")
+  
+  const handleSignupReq=(e) => {
+    e.preventDefault()
+    console.log(email, username, pass);
+
+  }
+
   return (
     <div className='h-screen w-full hero-bg '>
       <header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
@@ -18,24 +29,24 @@ const Signup = () => {
           Sign Up
         </h1>
 
-        <form className='space-y-4'>
+        <form className='space-y-4' onSubmit={handleSignupReq}>
           <div>
             <label htmlFor='' className='text-sm font-medium text-gray-300 block'>
               Email
             </label>
-            <input type='email' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='@example.com' id='email' />
+            <input type='email' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='@example.com' id='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div>
             <label htmlFor='' className='text-sm font-medium text-gray-300 block'>
               Username              
             </label>
-            <input type='text' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='username' id='username' />
+            <input type='text' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='username' id='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
           <div>
             <label htmlFor='' className='text-sm font-medium text-gray-300 block'>
               Password
             </label>
-            <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='password' id='password'/>
+            <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='password' id='password' value={pass} onChange={(e) => setPass(e.target.value)}/>
 
           </div>
 
