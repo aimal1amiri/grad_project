@@ -57,10 +57,13 @@ const AuthenticateHome = () => {
                                         
                 </div>
 
-                <div className='flex-1 '>
-                    <img src='/tv.png' alt='TV' className='mt-4 '/>
+                <div className='flex-1 relative'>
+                    <img src='/tv.png' alt='TV' className='mt-4 z-20 relative'/>
+                    <video className='absolute mx-4 top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 h-1/2 z-10' playsInline autoPlay={true} muted loop>
+                        <source src='/hero-vid.m4v' type='video/mp4' />
+                    </video>
 
-                </div>
+                </div>  
             </div>
         </div>
     </div>
