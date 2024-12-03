@@ -42,6 +42,27 @@ const AuthenticateHome = () => {
             </form>
 
         </div>
+
+        {/*sperative */}
+
+        <div className='h-2 w-full bg-[#232323]' aria-hidden='true'/>
+
+        <div className='py-10 bg-black text-white '>
+            <div className='flex m-x-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2 '>
+                <div className='flex-1 text-center md:text-left py-5'>
+                    <h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Enjoy on your TV</h2>
+                    <p className='text-lg md:text-xl'>
+                        Watch on Smart  TVs, PlayStation, Xbox, Apple TV, Blu-ray player, and more.
+                    </p>
+                                        
+                </div>
+
+                <div className='flex-1 '>
+                    <img src='/tv.png' alt='TV' className='mt-4 '/>
+
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
