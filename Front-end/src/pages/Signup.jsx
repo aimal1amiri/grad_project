@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 
 const Signup = () => {
 
-  const [email, setEmail]=useState("")
+  const {searchParams}=new URL(document.location);
+  const emailValue = searchParams.get("email");
+
+  const [email, setEmail]=useState(emailValue || "")
   const [username, setUsername]= useState("")
   const [pass, setPass]=useState("")
   
   const handleSignupReq=(e) => {
     e.preventDefault()
-    console.log(email, username, pass);
+    //console.log(email, username, pass);
 
   }
 

@@ -11,9 +11,9 @@ const Footer = () => {
                 target='_blank'
                 className='font-medium underline underline-offset-4'
                 >
-                    you
+                    Amiri
                 </a>
-                . This source code is available on {" "}
+                . The source code is available on {" "}
                 <a 
                 href='https://github.com/aimal1amiri'
                 target='_blank'
