@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuthGlobalState } from '../store/authUser.js';
 
 const Signup = () => {
 
@@ -10,11 +11,16 @@ const Signup = () => {
   const [username, setUsername]= useState("")
   const [pass, setPass]=useState("")
   
+  const { signup } = useAuthGlobalState();
+
   const handleSignupReq=(e) => {
     e.preventDefault()
     //console.log(email, username, pass);
 
+    signup({email, username, pass})
   }
+
+  
 
   return (
     <div className='h-screen w-full hero-bg '>
