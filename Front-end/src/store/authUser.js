@@ -6,15 +6,16 @@ import {create} from 'zustand';
 export const useAuthGlobalState= create((set) => ({
     user:null,
     isUserSignUp:false,
-    signup:async(privateInfo) => {
+    signup:async(credentials) => {
         set({isUserSignUp:true})
+        console.log(credentials)
         try {
-            const response = await axios.post("/api/v1/auth/signup",privateInfo);
+            const response = await axios.post("/api/v1/auth/signup",credentials);
             console.log(response)
             set({user:response.data.user, isUserSignUp:false})
             toast.success("Signup Successfully");
         } catch (error) {
-            toast.error(error.response.data.message)
+            toast.error(error.response.data.message || "An error occured")
             set({isUserSignUp:false, user:null});            
         }
     },
