@@ -8,7 +8,7 @@ import { connectDB } from './config/db.js';
 import { protectRoutes } from "./middleWare/protectRoutes.js";
 import cookieParser from 'cookie-parser';
 import searchRoutes from './routes/search_routes.js'
-
+import cors from "cors"
  
 
 
@@ -18,6 +18,7 @@ import searchRoutes from './routes/search_routes.js'
 const web= express();
 
 const PORT= ENV_VARS.PORT;
+    
 
 web.use(express.json()); //it allows to parse req.body
 web.use(cookieParser());
