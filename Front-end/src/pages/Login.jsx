@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuthGlobalState } from '../store/authUser';
 
 const Login = () => {
 
   const [email, setEmail]=useState("");
-  const [pass, setPass]=useState("");
+  const [password, setPassword]=useState("");
+  const {login}=useAuthGlobalState();
 
   const handleLoginReq = (e) => {
     e.preventDefault()
-    console.log(email, pass)
+    //console.log(email, pass)
+    login({email,password})
+
   }
 
   return (
@@ -40,10 +44,10 @@ const Login = () => {
             <label htmlFor='' className='text-sm font-medium text-gray-300 block'>
               Password
             </label>
-            <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline focus:ring' placeholder='*******' id='password' value={pass} onChange={(e) => setPass(e.target.value)} /> 
+            <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline focus:ring' placeholder='*******' id='password' value={password} onChange={(e) => setPassword(e.target.value)} /> 
           </div>
 
-          <button className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800'>
+          <button onClick={handleLoginReq} className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800'>
             Login
           </button>
 
