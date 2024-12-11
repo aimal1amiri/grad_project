@@ -1,8 +1,13 @@
 import React from 'react'
+import { useAuthGlobalState } from '../../store/authUser'
 
 const HomeScreen = () => {
+  const {logout}=useAuthGlobalState();
   return (
-    <div>HomeScreen</div>
+    <div>
+      <button onClick={logout} className=''>logout</button>
+    </div>
+    
   )
 }
 

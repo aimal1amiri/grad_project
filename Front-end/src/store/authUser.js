@@ -7,6 +7,7 @@ export const useAuthGlobalState= create((set) => ({
     user:null,
     isUserSignUp:false,
     isCheckingAuth:true,
+    isLogOut:false,
     signup:async(credentials) => {
         set({isUserSignUp:true})
         //console.log(credentials)
@@ -22,7 +23,16 @@ export const useAuthGlobalState= create((set) => ({
         }
     },
     login:async() => {},
-    logout:async() => {},
+    logout:async() => {
+        set({isLogOut:true});
+        try {
+            await axios.post("/api/v1/auth/logout");
+            set({user:null, isLogOut:false});
+        } catch (error) {
+            set({isLogOut:false});
+            toast.error(error.response.data.message);
+        }
+    },
     authChecking:async() => {
         set({isCheckingAuth:true});
         try {

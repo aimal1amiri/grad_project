@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     authChecking();
   },[]);
-  console.log(user,isCheckingAuth)
+  console.log(user)
   
   return (
     <>
