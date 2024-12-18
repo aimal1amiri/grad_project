@@ -10,9 +10,8 @@ const NavBar = () => {
 
     const {user, logout} = useAuthGlobalState();
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen(!setIsMobileMenuOpen)
-    }
+    const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+    
 
   return (
     <header className='max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20'>

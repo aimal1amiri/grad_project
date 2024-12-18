@@ -41,7 +41,7 @@ export async function signup(req,res){
         const salt=await bcryptjs.genSalt(10);
         const hashedPassword=await bcryptjs.hash(password,salt);
 
-        const PROFILE_PIC=["/profilePic1.", "/profilePic2.","/profilePic3."];
+        const PROFILE_PIC=["/profilePic1.png", "/profilePic2.png","/profilePic3.png"];
 
         const image=PROFILE_PIC[Math.floor(Math.random()*PROFILE_PIC.length)]; //selecting random image for user profile
 
