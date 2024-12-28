@@ -4,13 +4,17 @@ import NavBar from '../../components/NavBar';
 import { Link } from 'react-router-dom';
 import { Info, Play } from 'lucide-react';
 import getTrendingContent from '../../hooks/getTrendingContent';
-import { ORIGINAL_IMAGE_BASE_URL } from '../../utils/helperVariables';
+import { MOVIE_CATEGORIES, ORIGINAL_IMAGE_BASE_URL, TV_CATEGORIES } from '../../utils/helperVariables';
+import { useMovieTvContentStore } from '../../store/movie&TvContent';
+import MovieTvSlider from '../../components/MovieTvSlider';
 
 
 const HomeScreen = () => {
   const {logout}=useAuthGlobalState();
   const {trendingContent}= getTrendingContent();
-  console.log("trend: ",trendingContent)
+  const {contentType} = useMovieTvContentStore();
+
+  //console.log("trend: ",trendingContent)
   //console.log(trendingContent.backdrop_path);
 
   if(!trendingContent) return (
@@ -56,6 +60,12 @@ const HomeScreen = () => {
 
       </div>
 
+
+    </div>
+
+    <div className='flex flex-col gap-10 bg-black py-10 '>
+
+      {contentType === "movie" ? (MOVIE_CATEGORIES.map((category) => <MovieTvSlider key={category} category={category} /> )) : (TV_CATEGORIES.map((category) => <MovieTvSlider key={category} category= {category} /> ))}
 
     </div>
 
