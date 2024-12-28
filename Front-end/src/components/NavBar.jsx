@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import {LogOut, Menu, Search} from 'lucide-react'
 import { useAuthGlobalState } from '../store/authUser';
+import { useMovieTvContentStore } from '../store/movie&TvContent';
 
 const NavBar = () => {
 
@@ -11,6 +12,10 @@ const NavBar = () => {
     const {user, logout} = useAuthGlobalState();
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+    const {setContentType} = useMovieTvContentStore()
+
+    //console.log(contentType);
     
 
   return (
@@ -24,11 +29,11 @@ const NavBar = () => {
 
             {/*for desktop */}
             <div className='hidden sm:flex gap-4 items-center'>
-                <Link to='/' className='hover:underline'>
+                <Link to='/' className='hover:underline' onClick={()=> setContentType('movie')}>
                 Movies
                 </Link>
 
-                <Link to='/' className='hover:underline'>
+                <Link to='/' className='hover:underline' onClick={()=> setContentType('tvshow')}>
                 TV Shows
                 </Link>
 
