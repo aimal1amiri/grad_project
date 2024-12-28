@@ -12,6 +12,15 @@ const HomeScreen = () => {
   const {trendingContent}= getTrendingContent();
   console.log("trend: ",trendingContent)
   //console.log(trendingContent.backdrop_path);
+
+  if(!trendingContent) return (
+    <div className='h-screen text-white relative'>
+      <NavBar />
+      <div className='absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center -z-10 shimmer'>
+
+      </div>
+    </div>
+  )
   return (
     <>
     <div className='realtive h-screen text-white'>
@@ -28,7 +37,7 @@ const HomeScreen = () => {
 
         <div className='max-w-2xl'>
           <h1 className='mt-4 text-6xl font-extrabold text-balance text-red-700 '> {trendingContent?.title || trendingContent?.name}</h1>
-          <p className='mt-2 text-lg'> {trendingContent?.release_date.split("-")[0]}| +18</p>
+          <p className='mt-2 text-lg'> {trendingContent?.release_date || trendingContent?.first_air_date} {' '}  | {trendingContent.adult ? "18+" : "PG-13"}</p>
 
           <p className='mt-4 text-lg '>{trendingContent?.overview}</p>
         </div>
