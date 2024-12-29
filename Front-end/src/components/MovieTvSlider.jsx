@@ -3,6 +3,7 @@ import { useMovieTvContentStore } from '../store/movie&TvContent'
 import axios from 'axios';
 import { IMAGE_BASE_URL } from '../utils/helperVariables';
 import { Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react'
 
 const MovieTvSlider = ({category}) => {
 
@@ -14,6 +15,8 @@ const MovieTvSlider = ({category}) => {
 
   const [content, setContent]=useState([]);
 
+  const [showHideArrow, setShowHideArrow]= useState(false);
+
   useEffect(() => {
     const getContent = async () => {
       const res= await axios.get(`/api/v1/${contentType}/${category}`)
@@ -24,8 +27,8 @@ const MovieTvSlider = ({category}) => {
   }, [contentType, category]);
 
   return (
-    <div className='bg-black text-white relative px-5 md:px-20 '>
-      <h2>
+    <div className='bg-black text-white relative px-5 md:px-20 ' onMouseEnter={()=> setShowHideArrow(true)} onMouseLeave={()=> setShowHideArrow(false)}>
+      <h2 className='mb-4 text-2xl font-bold'>
         {categoryChanging} {contentTypeCaptalized}
 
       </h2>
@@ -44,6 +47,14 @@ const MovieTvSlider = ({category}) => {
           </Link>
         ))}
       </div>
+      {showHideArrow && (
+        <>
+        <button className='absolute top-1/3 translate-y-3 left-5 md:left-20 flex justify-center size-12 ml-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 text-white z-10 items-center'>
+        <ChevronLeft size={24} />
+
+        </button>
+        </>
+      )}
     </div>
   )
 }
