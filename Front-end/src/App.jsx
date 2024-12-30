@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast"
 import { useAuthGlobalState } from "./store/authUser"
 import { useEffect } from "react"
 import { Loader } from "lucide-react"
+import StreamingVideoPage from "./pages/StreamingVideoPage"
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/login" element={!user ? <Login/> : <Navigate to={"/"} /> } />
       <Route path="/signup" element={!user ? <Signup/> : <Navigate to={"/"}/> } />
+      <Route path="/watch/:id" element={user ? <StreamingVideoPage /> : <Navigate to={"/login"} /> } />
 
     </Routes>
 

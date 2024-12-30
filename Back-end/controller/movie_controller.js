@@ -23,6 +23,7 @@ export async function getMovieTrailers(req,res){
         const data=await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`);
         res.json({success:true, trailers:data.results}); // why "data.result" ?. when you request to that url it return json which consist of id and results. so to access that result we did that way. and in results might be one trailer or more than one
 
+
     } catch (error) {
         console.error("Error fetching trailers:", error.message);
         if(error.message.includes("404")){
@@ -38,6 +39,7 @@ export async function getMovieDetails(req,res){
     try {
         const data= await fetchFromTMDB(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
         res.status(200).json({success:true,message:data});
+        //console.log(data)
 
     } catch (error) {
         console.error("Error fetching trailers:", error.message);
