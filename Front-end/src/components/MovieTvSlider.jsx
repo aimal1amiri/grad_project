@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useMovieTvContentStore } from '../store/movie&TvContent'
 import axios from 'axios';
 import { IMAGE_BASE_URL } from '../utils/helperVariables';
 import { Link } from 'react-router-dom';
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const MovieTvSlider = ({category}) => {
 
@@ -17,6 +17,8 @@ const MovieTvSlider = ({category}) => {
 
   const [showHideArrow, setShowHideArrow]= useState(false);
 
+  const sliderRef = useRef(null);
+
   useEffect(() => {
     const getContent = async () => {
       const res= await axios.get(`/api/v1/${contentType}/${category}`)
@@ -26,6 +28,16 @@ const MovieTvSlider = ({category}) => {
     getContent();
   }, [contentType, category]);
 
+  const scrollRight= ()=> {
+    sliderRef.current.scrollBy({left: sliderRef.current.offsetWidth, behavior: 'smooth'});
+  }
+  const scrollLeft= ()=>{
+    if(sliderRef.current){
+      sliderRef.current.scrollBy({left:-sliderRef.current.offsetWidth, behavior: 'smooth'});
+    }
+
+  }
+
   return (
     <div className='bg-black text-white relative px-5 md:px-20 ' onMouseEnter={()=> setShowHideArrow(true)} onMouseLeave={()=> setShowHideArrow(false)}>
       <h2 className='mb-4 text-2xl font-bold'>
@@ -33,7 +45,7 @@ const MovieTvSlider = ({category}) => {
 
       </h2>
 
-      <div className='flex space-x-4 overflow-x-scroll'>
+      <div className='flex space-x-4 overflow-x-scroll scrollbar-hide' ref={sliderRef} >
         {content.map((item)=> (
           <Link to={`/watch/${item.id}`} className="min-w-[250px] relative group" key={item.id}>
             <div className='rounded-lg overflow-hidden'>
@@ -49,8 +61,13 @@ const MovieTvSlider = ({category}) => {
       </div>
       {showHideArrow && (
         <>
-        <button className='absolute top-1/3 translate-y-3 left-5 md:left-20 flex justify-center size-12 ml-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 text-white z-10 items-center'>
+        <button className='absolute top-1/3 translate-y-3 left-5 md:left-20 flex justify-center size-12 ml-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 text-white z-10 items-center' onClick={scrollLeft}>
         <ChevronLeft size={24} />
+
+        </button>
+
+        <button className='absolute top-1/3 translate-y-3 right-5 md:right-20 flex justify-center size-12 ml-2 rounded-full bg-black bg-opacity-50 hover:bg-opacity-70 text-white z-10 items-center' onClick={scrollRight}>
+        <ChevronRight size={24} />
 
         </button>
         </>
