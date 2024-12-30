@@ -61,7 +61,7 @@ const StreamingVideoPage = () => {
         const getMovieAndTvShowDetails = async () => {
             try {
                 const response = await axios.get(`/api/v1/${contentType}/${id}/details`);
-                setContent(response.data.content);
+                setContent(response.data.message);
 
                 console.log("inside: ", response)
 
