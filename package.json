@@ -5,7 +5,7 @@
   "main": "Back-end/start_back-end.js",
   "scripts": {
     "amiri": "NODE_ENV=development nodemon Back-end/start_back-end.js",
-    "build": "NODE_ENV=production npm install && npm install --prefix Front-end && npm run build --prefix Front-end",
+    "build": "npm install --prefix Front-end --production=false && npm run build --prefix Front-end",
     "start": "node Back-end/start_back-end.js"
   },
   "keywords": [],
