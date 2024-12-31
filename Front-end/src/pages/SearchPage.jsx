@@ -16,7 +16,7 @@ const SearchPage = () => {
 
     const sectionClick = (section) => {
         setActiveSection(section);
-        section === "movie" ? setContentType("movie") : setContentType("tv")
+        section === "movie" ? setContentType("movie") : setContentType("tvShow")
         setSearchValueResult([]);
     }
 
@@ -50,7 +50,7 @@ const SearchPage = () => {
                     Movies 
                 </button>
 
-                <button className={`py-2 px-4 rounded ${activeSection === "tv" ? "bg-orange-600" : "bg-gray-800"} hover:bg-orange-800`} onClick={() => sectionClick('tv')}>
+                <button className={`py-2 px-4 rounded ${activeSection === "tvShow" ? "bg-orange-600" : "bg-gray-800"} hover:bg-orange-800`} onClick={() => sectionClick('tvShow')}>
                     Tv Shows
                 </button>
 
@@ -76,7 +76,7 @@ const SearchPage = () => {
                     return (
                         <div key={searchValueResult.id} className='bg-gray-800 p-8 rounded '>
                             {activeSection === "person" ? (
-                                <Link to={"/actor/" + searchValueResult.name} className='flex flex-col items-center'>
+                                <Link className='flex flex-col items-center'>
                                     <img src={IMAGE_BASE_URL + searchValueResult.profile_path} alt={searchValueResult.name} className='max-h-96 rounded mx-auto' />
                                     <h2 className='mt-2 text-xl font-bold'>
                                         {searchValueResult.name}
