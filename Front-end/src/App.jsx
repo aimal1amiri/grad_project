@@ -8,6 +8,7 @@ import { useAuthGlobalState } from "./store/authUser"
 import { useEffect } from "react"
 import { Loader } from "lucide-react"
 import StreamingVideoPage from "./pages/StreamingVideoPage"
+import SearchPage from "./pages/SearchPage"
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       <Route path="/login" element={!user ? <Login/> : <Navigate to={"/"} /> } />
       <Route path="/signup" element={!user ? <Signup/> : <Navigate to={"/"}/> } />
       <Route path="/watch/:id" element={user ? <StreamingVideoPage /> : <Navigate to={"/login"} /> } />
+      <Route path="/search" element={user ? <SearchPage /> : <Navigate to={"/login"} /> } />
 
     </Routes>
 
