@@ -83,7 +83,7 @@ const SearchPage = () => {
                                     </h2>
                                 </Link>
                             ) : (
-                                <Link to={"/watch/"+ searchValueResult.id}>
+                                <Link to={"/watch/"+ searchValueResult.id} onClick={() => {setSearchValueResult(activeSection)}}>
                                     <img src={ORIGINAL_IMAGE_BASE_URL+searchValueResult.poster_path} alt={searchValueResult.title || searchValueResult.name} className='w-full h-auto rounded '/>
                                     <h2 className='mt-2 text-xl font-bold'> {searchValueResult.title || searchValueResult.name}</h2>
                                 </Link>
