@@ -29,7 +29,7 @@ const SearchPage = () => {
         try {
             const response = await axios.get(`/api/v1/search/${activeSection}/${searchValue}`);
             setSearchValueResult(response.data.content)
-            console.log("inside: ", response)
+            //console.log("inside: ", response)
         } catch (error) {
             if(error.response.status === 404){
                 toast.error("Please check your spelling and the category")
@@ -38,7 +38,7 @@ const SearchPage = () => {
         }
     }
 
-    console.log("results: ",searchValueResult);
+    //console.log("results: ",searchValueResult);
 
   return (
     <div className='bg-black min-h-screen text-white'>

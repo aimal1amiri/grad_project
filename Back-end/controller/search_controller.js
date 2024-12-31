@@ -7,7 +7,7 @@ export async function searchPerson(req,res){
     const {query} =req.params;
     try {
         const response = await fetchFromTMDB(`https://api.themoviedb.org/3/search/person?query=${query}&include_adult=false&language=en-US&page=1`);
-        console.log(response.results[0])
+        //console.log(response.results[0])
 
         if(response.results.length === 0 ){
             return res.status(404).send(null)
@@ -36,11 +36,11 @@ export async function searchMovie(req,res){
     //https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
 
     const {query} = req.params;
-    console.log(query);
+    //console.log(query);
 
     try {
         const response = await fetchFromTMDB(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`)
-        console.log(response.results[0]);
+        //console.log(response.results[0]);
 
         if(response.results.length === 0){
             return res.status(404).send("null")

@@ -81,12 +81,12 @@ const StreamingVideoPage = () => {
     }, [contentType,id]);
 
     //console.log("similar:",similarContent)
-    console.log("detials: ",content)
+    //console.log("detials: ",content)
 
     const showNext = () => {
         if(currentTrailerIndex < trailers.length -1 ) {
             setCurrentTrailerIndex(currentTrailerIndex +1 )
-            console.log("next")
+            //console.log("next")
         }
     }
     const showPrevious = () => {

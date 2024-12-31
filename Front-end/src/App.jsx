@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     authChecking();
   },[]);
-  console.log(user)
+  //console.log(user)
 
   if(isCheckingAuth){
     return (

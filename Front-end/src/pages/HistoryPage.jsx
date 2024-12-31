@@ -42,9 +42,9 @@ const HistoryPage = () => {
         }
 
         const deleteSearchHistoryData = async (value) => {
-            console.log("front-end-id: ",value.id)
+            //console.log("front-end-id: ",value.id)
             try {
-                console.log("hit the point")
+                //("hit the point")
                 const response= await axios.delete(`/api/v1/search/history/${value.id}`);
                 
                 toast.success(response.data.message);
@@ -52,7 +52,7 @@ const HistoryPage = () => {
                 setSearchHistoryData(searchHistoryData.filter((data) => data.id !== value.id))
             } catch (error) {
                 toast.error("It cannot delete!")
-                console.log(error)
+                //console.log(error)
                 
             }
         }
