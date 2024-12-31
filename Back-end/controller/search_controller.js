@@ -112,6 +112,8 @@ export async function deleteSearchHistory(req,res){
     let {id}= req.params;
 
     id=parseInt(id);
+
+   
     
 
     try {
