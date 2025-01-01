@@ -3,7 +3,7 @@
 ###
 
 <div align="center">
-  <img height="400" src="https://github.com/aimal1amiri/grad_project/blob/master/netflix.png"  />
+  <img height="400" src="https://github.com/aimal1amiri/grad_project/blob/master/Cineos.png"  />
 </div>
 
 ###
