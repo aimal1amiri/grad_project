@@ -11,7 +11,7 @@ const Signup = () => {
   const [username, setUsername]= useState("")
   const [password, setPass]=useState("")
   
-  const { signup } = useAuthGlobalState();
+  const { signup, isUserSignUp } = useAuthGlobalState();
 
   const handleSignupReq=(e) => {
     e.preventDefault()
@@ -59,8 +59,8 @@ const Signup = () => {
 
           </div>
 
-          <button className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800'>
-            Sign Up
+          <button className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800' disabled={isUserSignUp}>
+            {isUserSignUp ? "Creating an account..." : "Sign Up"}
           </button>
 
         </form>

@@ -6,7 +6,7 @@ const Login = () => {
 
   const [email, setEmail]=useState("");
   const [password, setPassword]=useState("");
-  const {login}=useAuthGlobalState();
+  const {login, isLogIn}=useAuthGlobalState();
 
   const handleLoginReq = (e) => {
     e.preventDefault()
@@ -47,8 +47,8 @@ const Login = () => {
             <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline focus:ring' placeholder='*******' id='password' value={password} onChange={(e) => setPassword(e.target.value)} /> 
           </div>
 
-          <button onClick={handleLoginReq} className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800'>
-            Login
+          <button onClick={handleLoginReq} className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800' disabled={isLogIn}>
+            {isLogIn ? "Wait..." : "Login"}
           </button>
 
         </form>
