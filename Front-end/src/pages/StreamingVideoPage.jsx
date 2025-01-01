@@ -164,7 +164,7 @@ const StreamingVideoPage = () => {
                     </h2>
 
                     <p className='mt-2 text-lg'>
-                        {(content?.release_date || content?.first_air_date)} | {" "} {content?.adult ? ( <span className='text-red-600'>18+</span>) : (<span className='text-green-500'>PG-13</span>)} {" "}
+                        {(content?.release_date || content?.first_air_date)} | {" "} {content?.adult ? ( <span className='text-orange-600'>18+</span>) : (<span className='text-green-500'>PG-13</span>)} {" "}
                     </p>
 
                     <p className='mt-4 text-lg'> {content?.overview}</p>

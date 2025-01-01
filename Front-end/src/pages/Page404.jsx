@@ -7,7 +7,7 @@ const Page404 = () => {
         <header className='absolute top-0 left-0 p-4 bg-black w-full'>
 
             <Link to={"/"}>
-            <img src='/netflix-logo.png' alt='logo' className='h-8'/>
+            <img src='/Cineoss.png' alt='logo' className='h-8'/>
             </Link>
 
 

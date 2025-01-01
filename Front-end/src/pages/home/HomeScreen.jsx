@@ -40,14 +40,14 @@ const HomeScreen = () => {
         <div className='bg-gradient-to-b from-black via-transparent to-transparent absolute w-full h-full top-0 left-0 -z-10'/>
 
         <div className='max-w-2xl'>
-          <h1 className='mt-4 text-6xl font-extrabold text-balance text-red-700 '> {trendingContent?.title || trendingContent?.name}</h1>
+          <h1 className='mt-4 text-6xl font-extrabold text-balance text-orange-500 '> {trendingContent?.title || trendingContent?.name}</h1>
           <p className='mt-2 text-lg'> {trendingContent?.release_date || trendingContent?.first_air_date} {' '}  | {trendingContent.adult ? "18+" : "PG-13"}</p>
 
           <p className='mt-4 text-lg '>{trendingContent?.overview}</p>
         </div>
 
         <div className='flex mt-8 '>
-          <Link to={`/watch/${trendingContent?.id}`} className='bg-red-700 hover:bg-red-700/80 text-black font-bold py-2 px-4 rounded mr-4 flex ites-center'>
+          <Link to={`/watch/${trendingContent?.id}`} className='bg-orange-500 hover:bg-orange-600/80 text-black font-bold py-2 px-4 rounded mr-4 flex ites-center'>
           <Play className='size-6 inline-block mr-2 fill-black '/>
           Play
           </Link>

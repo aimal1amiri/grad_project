@@ -46,15 +46,15 @@ const SearchPage = () => {
 
         <div className='container mx-auto px-4 py-8 '>
             <div className='flex justify-center gap-3 mb-4 '>
-                <button className={`py-2 px-4 rounded ${activeSection === "movie" ? "bg-orange-600" : "bg-gray-800"} hover:bg-orange-700`} onClick={() => sectionClick('movie')}>
+                <button className={`py-2 px-4 rounded ${activeSection === "movie" ? "bg-orange-500" : "bg-gray-800"} hover:bg-orange-600`} onClick={() => sectionClick('movie')}>
                     Movies 
                 </button>
 
-                <button className={`py-2 px-4 rounded ${activeSection === "tvShow" ? "bg-orange-600" : "bg-gray-800"} hover:bg-orange-800`} onClick={() => sectionClick('tvShow')}>
+                <button className={`py-2 px-4 rounded ${activeSection === "tvShow" ? "bg-orange-500" : "bg-gray-800"} hover:bg-orange-600`} onClick={() => sectionClick('tvShow')}>
                     Tv Shows
                 </button>
 
-                <button className={`py-2 px-4 rounded ${activeSection === "person" ? "bg-orange-600" : "bg-gray-800"} hover:bg-orange-800`} onClick={() => sectionClick('person')}>
+                <button className={`py-2 px-4 rounded ${activeSection === "person" ? "bg-orange-500" : "bg-gray-800"} hover:bg-orange-600`} onClick={() => sectionClick('person')}>
                     Person
                 </button>
             </div>
@@ -62,7 +62,7 @@ const SearchPage = () => {
             <form className='flex gap-2 items-stretch mb-8 max-w-2xl mx-auto ' onSubmit={grapValue}>
                 <input type='text' value={searchValue} onChange={(e)=> setSearchValue(e.target.value)} placeholder={"Search for a " + activeSection} className='w-full p-2 rounded bg-gray-800 text-white' />
 
-                <button className='bg-orange-600 hover:bg-amber-700 text-white p-2 rounded'>
+                <button className='bg-amber-500 hover:bg-amber-600 text-white p-2 rounded'>
                     <Search className='w-6 h-6' />
                 </button>
             </form>

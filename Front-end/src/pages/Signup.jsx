@@ -23,11 +23,14 @@ const Signup = () => {
   
 
   return (
-    <div className='h-screen w-full hero-bg '>
+    <div className='h-screen w-full image-bg '>
+
+
+
       <header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
 
         <Link to={"/"}>
-        <img src='/netflix-logo.png' alt='logo' className='w-52' />
+        <img src='/Cineoss.png' alt='logo' className='w-52' />
         </Link> 
 
       </header>
@@ -59,14 +62,14 @@ const Signup = () => {
 
           </div>
 
-          <button className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800' disabled={isUserSignUp}>
+          <button className='w-full py-2 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600' disabled={isUserSignUp}>
             {isUserSignUp ? "Creating an account..." : "Sign Up"}
           </button>
 
         </form>
         <div className='text-center text-gray-400'>
           Already have an account ? 
-          <Link to={"/login"} className='px-2 hover:underline text-red-900' >
+          <Link to={"/login"} className='px-2 hover:underline font-semibold text-amber-600' >
            Sign in
           </Link>
         </div>

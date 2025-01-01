@@ -71,14 +71,14 @@ const HistoryPage = () => {
                         <img src={IMAGE_BASE_URL+value.image} alt='Image' className='size-16 rounded-full object-cover mr-4 '/>
 
                         <div className='flex flex-col'>
-                            <span className='text-white text-lg'>
+                            <span className='text-white font-semibold text-lg'>
                                 {value.title}
                             </span>
                             <span className='text-gray-400 text-sm'>{value.createdAt}</span>
                         </div>
                         <span className={`py-1 px-3 min-w-20 text-center rounded-full text-sm ml-auto ${
                             //if(value.searchType==="movie")
-                            value.searchType === "Movie" ? "bg-orange-600" : value.searchType === "Tv-Show" ? "bg-amber-400" : "bg-yellow-700"
+                            value.searchType === "Movie" ? "font-semibold bg-orange-600" : value.searchType === "Tv-Show" ? "font-semibold bg-amber-600" : "font-semibold bg-yellow-700"
                         }`}>
                             {value.searchType}
                         </span>

@@ -16,11 +16,15 @@ const Login = () => {
   }
 
   return (
-    <div className='h-screen w-full hero-bg'>
+    <div className='h-screen w-full image-bg'>
+
+
+
+
       <header className='max-w-6xl mx-auto flex items-center justify-between p-4'>
 
         <Link to={"/"}>
-        <img src='/netflix-logo.png' alt='logo' className='w-52' />
+        <img src='/Cineoss.png' alt='logo' className='w-52' />
         </Link> 
 
 </header>
@@ -47,14 +51,14 @@ const Login = () => {
             <input type='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline focus:ring' placeholder='*******' id='password' value={password} onChange={(e) => setPassword(e.target.value)} /> 
           </div>
 
-          <button onClick={handleLoginReq} className='w-full py-2 bg-red-700 text-white font-semibold rounded-md hover:bg-red-800' disabled={isLogIn}>
+          <button onClick={handleLoginReq} className='w-full py-2 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600' disabled={isLogIn}>
             {isLogIn ? "Wait..." : "Login"}
           </button>
 
         </form>
         <div className='text-center text-gray-700'>
           Don't have an account ?
-          <Link to={"/signup"} className='text-red-800 px-2'>Sign Up</Link>
+          <Link to={"/signup"} className='text-amber-600 font-semibold px-2'>Sign Up</Link>
         </div>
         
         </div>
